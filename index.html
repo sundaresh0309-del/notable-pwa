@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- ── Primary Meta ── -->
+    <title>Notable</title>
+    <meta name="description" content="Notable — Your second brain. Beautiful notes with folders, lock vault, and rich editing." />
+    <meta name="keywords" content="notes, notebook, journal, productivity, vault, password manager" />
+    <meta name="author" content="Sundaresh" />
+
+    <!-- ── PWA Essential ── -->
+    <link rel="manifest" href="/notable-pwa/manifest.json" />
+    <meta name="theme-color" content="#18182A" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- ── Apple / iOS PWA ── -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Notable" />
+    <link rel="apple-touch-icon" href="/notable-pwa/icons/icon-152.png" />
+    <link rel="apple-touch-icon" sizes="72x72"  href="/notable-pwa/icons/icon-72.png" />
+    <link rel="apple-touch-icon" sizes="96x96"  href="/notable-pwa/icons/icon-96.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/notable-pwa/icons/icon-128.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/notable-pwa/icons/icon-144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/notable-pwa/icons/icon-152.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/notable-pwa/icons/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/notable-pwa/icons/icon-512.png" />
+
+    <!-- ── Splash screens for iOS ── -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- ── Favicon ── -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/notable-pwa/icons/icon-96.png" />
+    <link rel="shortcut icon" href="/notable-pwa/favicon.ico" />
+
+    <!-- ── Android / Chrome ── -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Notable" />
+
+    <!-- ── Microsoft Tiles ── -->
+    <meta name="msapplication-TileColor" content="#18182A" />
+    <meta name="msapplication-TileImage" content="/icons/icon-144.png" />
+
+    <!-- ── Open Graph (share preview) ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Notable — Your Second Brain" />
+    <meta property="og:description" content="Beautiful notes app with folders, lock vault, and rich editing" />
+    <meta property="og:image" content="/icons/icon-512.png" />
+
+    <!-- ── Prevent phone number detection ── -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- ── Safe area for notched phones ── -->
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body, #root {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        /* Safe area insets for notched/punch-hole phones */
+        padding-top: env(safe-area-inset-top);
+        padding-right: env(safe-area-inset-right);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+      }
+      body {
+        background: #18182A;
+        /* Prevent pull-to-refresh interfering */
+        overscroll-behavior: none;
+        /* Prevent text selection on long press */
+        -webkit-user-select: none;
+        user-select: none;
+        /* Prevent tap highlight */
+        -webkit-tap-highlight-color: transparent;
+        /* Smooth scrolling everywhere */
+        -webkit-overflow-scrolling: touch;
+      }
+      /* Allow text selection inside editor */
+      [contenteditable],
+      input,
+      textarea {
+        -webkit-user-select: text;
+        user-select: text;
+      }
+      /* Loading screen */
+      #loading {
+        position: fixed;
+        inset: 0;
+        background: #18182A;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        z-index: 9999;
+        transition: opacity 0.4s ease;
+      }
+      #loading.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .loading-logo {
+        font-size: 48px;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      .loading-text {
+        font-family: Georgia, serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #ECEAF5;
+        letter-spacing: 0.02em;
+      }
+      .loading-sub {
+        font-family: monospace;
+        font-size: 11px;
+        color: rgba(255,255,255,0.3);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .loading-bar {
+        width: 120px;
+        height: 2px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 1px;
+        overflow: hidden;
+      }
+      .loading-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #6B7ED9, #B06BD9);
+        border-radius: 1px;
+        animation: loadBar 1.2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+      }
+      @keyframes loadBar {
+        0% { width: 0%; margin-left: 0%; }
+        50% { width: 60%; margin-left: 20%; }
+        100% { width: 0%; margin-left: 100%; }
+      }
+    </style>
+    <script type="module" crossorigin src="/notable-pwa/assets/index-DbplR1sc.js"></script>
+  </head>
+  <body>
+
+    <!-- Loading screen shown until React mounts -->
+    <div id="loading">
+      <div class="loading-logo">📝</div>
+      <div class="loading-text">Notable</div>
+      <div class="loading-sub">Your Second Brain</div>
+      <div class="loading-bar">
+        <div class="loading-bar-fill"></div>
+      </div>
+    </div>
+
+    <!-- React mounts here -->
+    <div id="root"></div>
+
+    <!-- Service Worker Registration -->
+    <script>
+      // Hide loading screen when React is ready
+      window.__hideLoading = function() {
+        const el = document.getElementById('loading');
+        if (el) {
+          el.classList.add('hidden');
+          setTimeout(() => el.remove(), 400);
+        }
+      };
+
+      // Register Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker
+            .register('/notable-pwa/sw.js')
+            .then(function(registration) {
+              console.log('[Notable] SW registered:', registration.scope);
+
+              // Check for updates
+              registration.addEventListener('updatefound', function() {
+                const newWorker = registration.installing;
+                newWorker.addEventListener('statechange', function() {
+                  if (newWorker.state === 'installed' &&
+                      navigator.serviceWorker.controller) {
+                    console.log('[Notable] New version available');
+                    // Optional: show update notification
+                    if (window.__showUpdateBanner) {
+                      window.__showUpdateBanner();
+                    }
+                  }
+                });
+              });
+            })
+            .catch(function(err) {
+              console.warn('[Notable] SW registration failed:', err);
+            });
+        });
+      }
+
+      // Handle PWA install prompt
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        // App can trigger install when ready
+        window.__pwaPrompt = deferredPrompt;
+      });
+
+      // Detect if running as installed PWA
+      window.__isPWA = window.matchMedia('(display-mode: standalone)').matches ||
+                       window.navigator.standalone === true;
+
+      // Handle shortcuts from manifest
+      const urlParams = new URLSearchParams(window.location.search);
+      const action = urlParams.get('action');
+      if (action) {
+        window.__startupAction = action;
+      }
+    </script>
+
+  </body>
+</html>
