@@ -2,12 +2,12 @@
   "name": "Notable — Your Second Brain",
   "short_name": "Notable",
   "description": "A beautiful notes app with folders, lock vault, and rich editing",
-  "start_url": "/",
+  "start_url": "/notable-pwa/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#18182A",
   "theme_color": "#18182A",
-  "scope": "/",
+  "scope": "/notable-pwa/",
   "lang": "en",
   "categories": ["productivity", "utilities"],
   "icons": [
@@ -65,15 +65,15 @@
       "name": "New Note",
       "short_name": "Note",
       "description": "Create a new note",
-      "url": "/?action=new-note",
-      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96" }]
+      "url": "/notable-pwa/?action=new-note",
+      "icons": [{ "src": "/notable-pwa/icons/icon-96.png", "sizes": "96x96" }]
     },
     {
       "name": "Lock Vault",
       "short_name": "Vault",
       "description": "Open your secure vault",
-      "url": "/?action=vault",
-      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96" }]
+      "url": "/notable-pwa/?action=vault",
+      "icons": [{ "src": "/notable-pwa/icons/icon-96.png", "sizes": "96x96" }]
     }
   ],
   "screenshots": [],
