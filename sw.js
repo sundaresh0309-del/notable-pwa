@@ -1,10 +1,10 @@
 /* ============================================
-   NOTABLE SERVICE WORKER v2
+   M Paper SERVICE WORKER v2
    Network-first for app assets so new builds
    always load correctly. No more 404 on old JS.
    ============================================ */
 
-const CACHE_VERSION = 'notable-v3';
+const CACHE_VERSION = 'M Paper-v3';
 
 /* ── INSTALL — skip waiting immediately ── */
 self.addEventListener('install', (event) => {
@@ -71,7 +71,7 @@ self.addEventListener('fetch', (event) => {
       .catch(() =>
         caches.match(request).then((cached) =>
           cached || (request.mode === 'navigate'
-            ? caches.match('/notable-pwa/index.html')
+            ? caches.match('/M Paper-pwa/index.html')
             : new Response('Offline', { status: 503 }))
         )
       )
