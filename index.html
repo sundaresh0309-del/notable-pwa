@@ -174,7 +174,7 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker
-            .register('/sw.js')
+            .register('/notable-pwa/sw.js')
             .then(function(registration) {
               console.log('[Notable] SW registered:', registration.scope);
 
