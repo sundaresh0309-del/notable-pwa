@@ -4,7 +4,7 @@
    always load correctly. No more 404 on old JS.
    ============================================ */
 
-const CACHE_VERSION = 'M Paper-v3';
+const CACHE_VERSION = 'mpaper-v5';
 
 /* ── INSTALL — skip waiting immediately ── */
 self.addEventListener('install', (event) => {
