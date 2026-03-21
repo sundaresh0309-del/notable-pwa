@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Notable</title>
-    <meta name="description" content="Notable — Your second brain." />
-    <link rel="manifest" href="/notable-pwa/manifest.json" />
-    <meta name="theme-color" content="#18182A" />
+    <title>M Paper</title>
+    <meta name="description" content="M Paper — Your second brain." />
+    <link rel="manifest" href="/M-Paper-pwa/manifest.json" />
+    <meta name="theme-color" content="#FFFFFF" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Notable" />
-    <link rel="apple-touch-icon" href="/notable-pwa/icons/icon-192.png" />
-    <link rel="icon" type="image/png" href="/notable-pwa/icons/icon-96.png" />
+    <meta name="apple-mobile-web-app-title" content="M Paper" />
+    <link rel="apple-touch-icon" href="/M Paper-pwa/icons/icon-192.png" />
+    <link rel="icon" type="image/png" href="/M-Paper-pwa/icons/icon-96.png" />
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body, #root { height: 100%; width: 100%; overflow: hidden; }
       body {
-        background: #18182A;
+        background: #FFFFFF;
         overscroll-behavior: none;
         -webkit-user-select: none;
         user-select: none;
@@ -28,14 +28,14 @@
         user-select: text;
       }
       #loading {
-        position: fixed; inset: 0; background: #18182A;
+        position: fixed; inset: 0; background: #FFFFFF;
         display: flex; flex-direction: column;
         align-items: center; justify-content: center;
         gap: 16px; z-index: 9999; transition: opacity 0.4s ease;
       }
       #loading.hidden { opacity: 0; pointer-events: none; }
-      .loading-text { font-family: Georgia,serif; font-size: 22px; font-weight: 700; color: #ECEAF5; }
-      .loading-sub { font-family: monospace; font-size: 11px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; }
+      .loading-text { font-family: Georgia,serif; font-size: 22px; font-weight: 700; color: #7A2B35; }
+      .loading-sub { font-family: monospace; font-size: 11px; color: #B6B6B6; text-transform: uppercase; letter-spacing: 0.1em; }
       .loading-bar { width: 120px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 1px; overflow: hidden; }
       .loading-bar-fill { height: 100%; background: linear-gradient(90deg,#6B7ED9,#B06BD9); animation: loadBar 1.2s ease-in-out infinite; }
       @keyframes loadBar { 0%{width:0%;margin-left:0%} 50%{width:60%;margin-left:20%} 100%{width:0%;margin-left:100%} }
@@ -44,8 +44,10 @@
   </head>
   <body>
     <div id="loading">
-      <div style="font-size:48px">📝</div>
-      <div class="loading-text">Notable</div>
+      <img src="/M-Paper-pwa/icons/icon-192.png"
+     style="width:96px;height:96px;border-radius:24px;object-fit:cover;box-shadow:0 12px 40px rgba(80,96,204,0.45);"
+     alt="M Paper" />
+      <div class="loading-text">M Paper</div>
       <div class="loading-sub">Your Second Brain</div>
       <div class="loading-bar"><div class="loading-bar-fill"></div></div>
     </div>
@@ -58,9 +60,9 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker
-            .register('/notable-pwa/sw.js')
-            .then(r => console.log('[Notable] SW registered:', r.scope))
-            .catch(e => console.warn('[Notable] SW failed:', e));
+            .register('/M-Paper-pwa/sw.js')
+            .then(r => console.log('[M Paper] SW registered:', r.scope))
+            .catch(e => console.warn('[M Paper] SW failed:', e));
         });
       }
     </script>
