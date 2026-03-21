@@ -8,13 +8,13 @@ const CACHE_VERSION = 'mpaper-v5';
 
 /* ── INSTALL — skip waiting immediately ── */
 self.addEventListener('install', (event) => {
-  console.log('[SW] Installing v3...');
+  console.log('[SW] Installing v5...');
   event.waitUntil(self.skipWaiting());
 });
 
 /* ── ACTIVATE — delete ALL old caches ── */
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activating v3, clearing old caches...');
+  console.log('[SW] Activating v5, clearing old caches...');
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.map((key) => {
@@ -71,7 +71,7 @@ self.addEventListener('fetch', (event) => {
       .catch(() =>
         caches.match(request).then((cached) =>
           cached || (request.mode === 'navigate'
-            ? caches.match('/M Paper-pwa/index.html')
+            ? caches.match('/M-Paper-pwa/index.html')
             : new Response('Offline', { status: 503 }))
         )
       )
